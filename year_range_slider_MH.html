@@ -1,0 +1,44 @@
+<html>
+<head>
+   <!-- Dependencies -->
+   <script src="https://d3js.org/d3.v3.min.js"></script>
+
+   <!-- Range slider code -->
+  <script src="d3RangeSlider.js"></script>
+
+   <!-- Range slider style -->
+    <link href="d3RangeSlider.css" rel="stylesheet">
+
+   <style type="text/css">
+       #slider-container {
+           position: relative;
+           height:30px;
+           background-color: #eeeef5;
+       }
+      #range-label {
+            text-align: center;
+        }
+   </style>
+</head>
+<body>
+
+<div id="slider-container"></div>
+<div id="range-label"></div>
+<script type="text/javascript">
+   //var slider = createD3RangeSlider(0, 100, "#slider-container");
+  // Create slider spanning the range from 0 to 10
+  var slider = createD3RangeSlider(1970, 2016, "#slider-container");
+
+  // Listener gets added
+  slider.onChange(function(newRange){
+     console.log(newRange, newRange.begin, newRange.end);
+     d3.select("#range-label").html(newRange.begin + " &mdash; " + newRange.end);
+  });
+
+  slider.range(1970,2016)
+
+
+</script>
+
+</body>
+</html>
