@@ -160,16 +160,20 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
     // configure drag behavior for handles and slider
     var dragResizeE = d3.behavior.drag()
         .on("dragstart", function () {
+            //console.log("running dragstart")
             d3.event.sourceEvent.stopPropagation();
             resumePlaying = playing;
             playing = false;
         })
         .on("dragend", function () {
+            //console.log("running dragstend")
+            updateRangeFromUI();
             if (resumePlaying) {
                 startPlaying();
             }
         })
         .on("drag", function () {
+            //console.log("running drag")
             var dx = d3.event.dx;
             if (dx == 0) return;
             var conWidth = sliderBox.node().clientWidth; //parseFloat(container.style("width"));
@@ -178,7 +182,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             newWidth = Math.max(newWidth, minWidth);
             newWidth = Math.min(newWidth, conWidth - newLeft);
             slider.style("width", newWidth + "px");
-            updateRangeFromUI();
+            //updateRangeFromUI();
         });
 
     var dragResizeW = d3.behavior.drag()
@@ -189,6 +193,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             playing = false;
         })
         .on("dragend", function () {
+            updateRangeFromUI();
             if (resumePlaying) {
                 startPlaying();
             }
@@ -211,7 +216,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             slider.style("left", newLeft + "px");
             slider.style("width", newWidth + "px");
 
-            updateRangeFromUI();
+            //updateRangeFromUI();
         });
 
     var dragMove = d3.behavior.drag()
@@ -221,6 +226,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             playing = false;
         })
         .on("dragend", function () {
+            updateRangeFromUI();
             if (resumePlaying) {
                 startPlaying();
             }
@@ -235,7 +241,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             newLeft = Math.min(newLeft, conWidth - newWidth);
             slider.style("left", newLeft + "px");
 
-            updateRangeFromUI();
+            //updateRangeFromUI();
         });
 
     handleE.call(dragResizeE);
