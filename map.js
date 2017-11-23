@@ -1,10 +1,21 @@
 d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
 
+    // Create slider spanning the range from 0 to 10
+    var slider = createD3RangeSlider(1970, 2016, "#slider-container");
+    slider.range(1970,2016);
+    var range_begin = 1970;
+    var range_end = 2016;
+
+    //console.log(range_begin, range_end)
+
     function reformat(array) {
         var data = [];
         //console.log(array[1].latitude)
         array.map(function (d, i) {
             //console.log(d.longitude,i)
+            //console.log(+d.iyear)
+            //console.log("running")
+            if (+d.iyear >= range_begin && +d.iyear <= range_end){
             data.push({
                 id: i,
                 type: "Feature",
@@ -13,7 +24,7 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
                     type: "Point"
                 }
 
-            });
+            })};
         //console.log(data)
         });
         return data;
@@ -27,10 +38,7 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
             x: data.geometry.coordinates[0],
             y: data.geometry.coordinates[1],
             all: data
-        };
-    }
-                                                 )
-                                          );
+        };}));
 
 
     // Find the nodes within the specified rectangle.
@@ -202,6 +210,30 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
         redrawSubset(subset);
 
     }
+
+    // Listener gets added
+    slider.onChange(function(newRange){
+        //console.log(newRange, newRange.begin, newRange.end);
+        d3.select("#range-label").html(newRange.begin + " &mdash; " + newRange.end);
+        range_begin = newRange.begin;
+        range_end = newRange.end;
+
+        geoData = { type: "FeatureCollection", features: reformat(incidents) };
+        qtree = d3.geom.quadtree(geoData.features.map(function (data, i) {
+        return {
+            x: data.geometry.coordinates[0],
+            y: data.geometry.coordinates[1],
+            all: data
+        };}));
+
+        updateNodes(qtree);
+
+        mapBounds = leafletMap.getBounds();
+        subset = search(qtree, mapBounds.getWest(), mapBounds.getSouth(), mapBounds.getEast(), mapBounds.getNorth());
+
+        mapmove();
+        //console.log(range_begin, range_end)
+    });
 
 
 
