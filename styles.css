@@ -41,6 +41,13 @@ text {
     fill: white;
 }
 
+.time_slider{
+	width: 100%;
+	background-color: rgb(240,240,240);
+	height: 50px;
+	text-align: center;
+}
+
 svg {
     position: relative;
 }
@@ -56,9 +63,35 @@ path:hover {
     }
 
 #map {
-    position: absolute;
-    height: 100%;
+    position: relative;
+    height: 500px;
     width: 100%;
     background-color: #333;
-
+}
+.sub_all{
+	width:100%;
+	flex:auto;
+	display: flex;
+	flex-direction: row;
+}
+.sub_left{
+/*	display: inline-block;
+	width:30%;*/
+	width: 33.33%;
+	height: 400px;
+	background-color: rgb(240,255,255);
+}
+.sub_middle{
+/*	display: inline-block;
+	width: 32%;*/
+	width: 33.33%;
+	height: 400px;
+	background-color: rgb(255,240,255);
+}
+.sub_right{
+/*	display: inline-block;
+	width: 32%;*/
+	width: 33.33%;
+	height: 400px;
+	background-color: rgb(255,255,240);
 }
