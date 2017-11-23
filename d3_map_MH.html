@@ -75,7 +75,7 @@
     <script>
 
 
-        d3.csv('globalterrorismdb_0617dist_small_us.csv', function (error, incidents) {
+        d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
 
             // Create slider spanning the range from 0 to 10
             var slider = createD3RangeSlider(1970, 2016, "#slider-container");
@@ -91,7 +91,7 @@
                 array.map(function (d, i) {
                     //console.log(d.longitude,i)
                     //console.log(+d.iyear)
-                    console.log("running")
+                    //console.log("running")
                     if (+d.iyear >= range_begin && +d.iyear <= range_end){
                     data.push({
                         id: i,
