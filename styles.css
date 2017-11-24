@@ -1,7 +1,7 @@
 body,html {
 	margin:0;
 	padding:0;
-	background-color: #E3E3E3;
+	background-color: rgb(255,255,255);
 	width:100%;
 }
 
@@ -9,8 +9,8 @@ body {
     font-size: 12px;
 }
 .container{
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 15%;
+	padding-right: 15%;
 	padding-bottom: 50px;
 }
 
@@ -150,7 +150,7 @@ path:hover {
 	background-color: rgb(255,255,240);
 }
 
-<<<<<<< HEAD
+
 /*
 
 	Footer
@@ -165,23 +165,9 @@ path:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-
 /*dataset page*/
 .intro{
-	margin-top: 30px
+	margin-top: 30px;
 }
 p.header{
 	font-size: 1.5rem;
@@ -197,4 +183,3 @@ p.text{
 	text-decoration: none;
 	color:#4A90E2;
 }
->>>>>>> fab38e7ac0655b6a611dc4aa6dd5150df73db043
