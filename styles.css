@@ -2,16 +2,11 @@ body,html {
 	margin:0;
 	padding:0;
 	background-color: #E3E3E3;
+	width:100%;
 }
 
-.navbar{
-	box-sizing: border-box;
-	background: #1F2534;
-	height:60px;
-	width:100%;
-	flex:auto;
-	text-align: center;
-	margin:0;
+body {
+    font-size: 12px;
 }
 
 div {
@@ -19,27 +14,56 @@ div {
 	padding:0;
 }
 
-.button{
-  box-sizing: border-box;
-	background: #1F2534;
-	border: 1px solid #306EFE;
+/*
+	
+	Navigation bar
+
+*/
+
+.navbar {
+	display: flex;
+	flex-flow: row;
+
+	background: #333;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.navbar button {
+	background-color: rgba(51,51,51,1);
+	border-left: solid #E3E3E3 1px;
+	border-right:none;
+	border-top: none;
+	border-bottom: none;
+
 	color: #FFFFFF;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 25px;
-	height:60px;
+
+	height:50px;
 	width:200px;
-	padding:12px;
-	display:inline-block;
-	position:static;
-	
-}
-body {
-    font-size: 12px;
 }
 
-text {
-    fill: white;
+/*Puts a right-border on the about tab in the navbar*/
+.navbar #about {
+	border-right: solid #E3E3E3 1px;
 }
+
+/*Highlights a tab on hover*/
+.navbar button:hover {
+	filter: brightness(118%);
+}
+
+/*Highlights the current tab*/
+.navbar .current-page {
+	filter: brightness(118%);
+}
+
+/***
+
+	Timeline
+
+***/
 
 .time_slider{
 	width: 100%;
