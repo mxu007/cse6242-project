@@ -129,25 +129,24 @@ path:hover {
 	flex-direction: row;
 }
 .sub_left{
-/*	display: inline-block;
-	width:30%;*/
+	box-sizing: border-box;
 	width: 33.33%;
-/*	height: 40vh;*/
 	background-color: rgb(240,255,255);
+	margin:5px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
+
 }
 .sub_middle{
-/*	display: inline-block;
-	width: 32%;*/
 	width: 33.33%;
-/*	height: 40vh;*/
 	background-color: rgb(255,240,255);
+	margin:5px 0 5px 0;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 .sub_right{
-/*	display: inline-block;
-	width: 32%;*/
 	width: 33.33%;
-/*	height: 40vh;*/
 	background-color: rgb(255,255,240);
+	margin:5px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 
 <<<<<<< HEAD
