@@ -8,6 +8,11 @@ body,html {
 body {
     font-size: 12px;
 }
+.container{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 50px;
+}
 
 div {
 	margin:0;
@@ -131,4 +136,24 @@ path:hover {
 	width: 33.33%;
 	height: 400px;
 	background-color: rgb(255,255,240);
+}
+
+
+/*dataset page*/
+.intro{
+	margin-top: 30px
+}
+p.header{
+	font-size: 1.5rem;
+	font-family: arial, sans-serif;
+}
+p.text{
+	font-size: 1rem;
+	font-family: arial, sans-serif;
+}
+.intro a{
+	font-size: 1rem;
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	color:#4A90E2;
 }
