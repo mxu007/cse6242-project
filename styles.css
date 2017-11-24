@@ -40,7 +40,7 @@ div {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 25px;
 
-	height:50px;
+	height:7vh;
 	width:200px;
 }
 
@@ -68,7 +68,7 @@ div {
 .time_slider{
 	width: 100%;
 	background-color: rgb(240,240,240);
-	height: 80px;
+	height: 8vh;
 	text-align: center;
 }
 #slider-container {
@@ -99,14 +99,26 @@ path:hover {
         fill-opacity: .7;
     }
 
+/*
+
+	Map
+
+*/
 #map {
     position: relative;
-    height: 500px;
     width: 100%;
+    height: 50vh;
     background-color: #333;
 }
+
+/*
+
+	sub
+
+*/
 .sub_all{
 	width:100%;
+	height:35vh;
 	flex:auto;
 	display: flex;
 	flex-direction: row;
@@ -115,20 +127,47 @@ path:hover {
 /*	display: inline-block;
 	width:30%;*/
 	width: 33.33%;
-	height: 400px;
+/*	height: 40vh;*/
 	background-color: rgb(240,255,255);
 }
 .sub_middle{
 /*	display: inline-block;
 	width: 32%;*/
 	width: 33.33%;
-	height: 400px;
+/*	height: 40vh;*/
 	background-color: rgb(255,240,255);
 }
 .sub_right{
 /*	display: inline-block;
 	width: 32%;*/
 	width: 33.33%;
-	height: 400px;
+/*	height: 40vh;*/
 	background-color: rgb(255,255,240);
 }
+
+/*
+
+	Footer
+
+*/
+.footer {
+	display:flex;
+	background-color: #E3E3E3;
+	width:100%;
+	height:150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
