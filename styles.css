@@ -8,10 +8,18 @@ body,html {
 body {
     font-size: 12px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 .container{
 	padding-left: 15%;
 	padding-right: 15%;
 	padding-bottom: 50px;
+<<<<<<< HEAD
+=======
+/*	height: 100vh;*/
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 }
 
 div {
@@ -52,6 +60,7 @@ div {
 /*Puts a right-border on the about tab in the navbar*/
 .navbar #about {
 	border-right: solid #E3E3E3 1px;
+<<<<<<< HEAD
 }
 
 /*Highlights a tab on hover*/
@@ -64,6 +73,20 @@ div {
 	filter: brightness(118%);
 }
 
+=======
+}
+
+/*Highlights a tab on hover*/
+.navbar button:hover {
+	filter: brightness(118%);
+}
+
+/*Highlights the current tab*/
+.navbar .current-page {
+	filter: brightness(118%);
+}
+
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 /***
 
 	Timeline
@@ -149,7 +172,10 @@ path:hover {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 /*
 
 	Footer
@@ -162,9 +188,17 @@ path:hover {
 	height:150px;
 }
 
+<<<<<<< HEAD
 
 
 /*dataset page*/
+=======
+/*
+
+	Dataset Page
+
+*/
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 .intro{
 	margin-top: 30px;
 }
@@ -182,3 +216,74 @@ p.text{
 	text-decoration: none;
 	color:#4A90E2;
 }
+<<<<<<< HEAD
+=======
+
+/*
+
+	About Page
+
+*/
+.profiles {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr auto 1fr auto;
+	justify-items: center;
+	align-items: center;
+	grid-column-gap: 10px;
+}
+
+#vineet {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+
+#scott {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+
+#minghan {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+}
+
+#james {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+}
+
+#eugene {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+
+#cooper {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.profiles p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333;
+	font-size: 18px;
+	margin:4px 0 30px 0;
+	padding:0;
+	text-align: center;
+	vertical-align: text-top;
+}
+
+.profiles p span {
+	color: #4A90E2;
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
