@@ -1,5 +1,5 @@
 .slider-container {
-    background-color: #f2f2f9;
+    background-color: rgb(240,240,240);
 }
 
 .slider {
@@ -17,8 +17,8 @@
     position: absolute;
     height: 9px;
     width: 9px;
-    border: 1px solid #AAB;
-    background: #9AC;
+    border: 1px solid #4A90E2;
+    background: #4A90E2;
 
     /* Support for bootstrap */
     box-sizing: border-box;
