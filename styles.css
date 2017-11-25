@@ -86,22 +86,48 @@ div {
 
 .time_slider{
 	width: 100%;
-	background-color: rgb(240,240,240);
+	background-color: rgb(80,80,80);
 	height: 8vh;
 	text-align: center;
+	padding-top: 10px;
+	color: white;
 }
 #slider-container {
-   position: relative;
-   height: 50px;
-   background-color: #eeeef5;
-   margin-left: 10px;
-   margin-right:10px;
-   margin-bottom:5px;
-}
+       position: relative;
+       height: 20px;
+       background-color: #eeeef5;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom:2px;
+   }
 
 #range-label {
-    text-align: center;
-    margin-bottom: 10px
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 2px;
+        font-size: 1rem;
+        font-family: arial,sans-serif;
+    }
+#axis-label {
+		color: white;
+        height:20px;
+        margin-bottom: 2px;
+        font-family: arial,sans-serif;
+        stroke: white;
+ }
+ #axis-label .tick{
+ 	stroke: white;
+ }
+  #axis-label text{
+ 	color: white;
+ }
+#axis path,
+#axis text,
+#axis line {
+      fill: none;
+      stroke: white;
+      stroke-width:0.8px;
+      shape-rendering: auto;
 }
 
 svg {

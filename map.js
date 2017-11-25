@@ -1,8 +1,37 @@
 d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
 
+
+  // function to create dynamic axis label
+  function updateAxis() {
+    var width = document.getElementById('axis-label').offsetWidth;
+    //console.log(width)
+
+    var svg = d3.select("#axis-label").append("svg")
+        .attr("width", width)
+        .attr("height",20)
+        .attr("id", "axis")
+        .append("g")
+        .attr("transform", "translate(" + 20 + "," + 0 + ")");
+
+    var x = d3.scale.linear()
+        .domain([1970, 2016])
+        .range([0, width-40]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .ticks(5)
+        .tickFormat(d3.format("d"))
+        .tickValues([1970,1975,1980,1985,1990,1995,2000,2005,2010,2016]);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis,)
+  }
+
     // Create slider spanning the range from 0 to 10
     var slider = createD3RangeSlider(1970, 2016, "#slider-container");
-    slider.range(1970,2016);
+    updateAxis();
     var range_begin = 1970;
     var range_end = 2016;
 
@@ -214,7 +243,7 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
     // Listener gets added
     slider.onChange(function(newRange){
         //console.log(newRange, newRange.begin, newRange.end);
-        d3.select("#range-label").html(newRange.begin + " &mdash; " + newRange.end);
+        d3.select("#range-label").html("You selected year range: " + newRange.begin + " &mdash; " + newRange.end);
         range_begin = newRange.begin;
         range_end = newRange.end;
 
@@ -234,11 +263,12 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
         mapmove();
         //console.log(range_begin, range_end)
     });
+    slider.range(1970,2016);
 
-
-
-
-
-
+    // window listener to adjust the axis size
+    window.addEventListener("resize", function () {
+        d3.select("#axis").remove()
+        updateAxis();
+    });
 
 });
