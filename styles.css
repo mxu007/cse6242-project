@@ -8,18 +8,12 @@ body,html {
 body {
     font-size: 12px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 .container{
 	padding-left: 15%;
 	padding-right: 15%;
 	padding-bottom: 50px;
-<<<<<<< HEAD
-=======
 /*	height: 100vh;*/
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 }
 
 div {
@@ -60,7 +54,6 @@ div {
 /*Puts a right-border on the about tab in the navbar*/
 .navbar #about {
 	border-right: solid #E3E3E3 1px;
-<<<<<<< HEAD
 }
 
 /*Highlights a tab on hover*/
@@ -73,7 +66,6 @@ div {
 	filter: brightness(118%);
 }
 
-=======
 }
 
 /*Highlights a tab on hover*/
@@ -86,7 +78,6 @@ div {
 	filter: brightness(118%);
 }
 
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 /***
 
 	Timeline
@@ -172,10 +163,6 @@ path:hover {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 /*
 
 	Footer
@@ -188,17 +175,11 @@ path:hover {
 	height:150px;
 }
 
-<<<<<<< HEAD
-
-
-/*dataset page*/
-=======
 /*
 
 	Dataset Page
 
 */
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
 .intro{
 	margin-top: 30px;
 }
@@ -216,8 +197,6 @@ p.text{
 	text-decoration: none;
 	color:#4A90E2;
 }
-<<<<<<< HEAD
-=======
 
 /*
 
@@ -277,13 +256,3 @@ p.text{
 	color: #4A90E2;
 }
 
-
-
-
-
-
-
-
-
-
->>>>>>> 88474e27eb74665074c48ec907ae3f285e85a1a1
