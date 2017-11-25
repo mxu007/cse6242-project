@@ -8,6 +8,6 @@ By Cooper Colglazier, Minghan Xu, Huaiwei Sun, Eugene Kang, James Lee and Vineet
 
 - Please download the Flask, Redis and Flask-SocketIO libraries in order to use our application:
 
-'''
+```
 pip install flask redis flask-socketio
-'''
+```
