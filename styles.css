@@ -1,17 +1,17 @@
 body,html {
 	margin:0;
 	padding:0;
-	background-color: #E3E3E3;
+	background-color: rgb(255,255,255);
+	width:100%;
 }
 
-.navbar{
-	box-sizing: border-box;
-	background: #1F2534;
-	height:60px;
-	width:100%;
-	flex:auto;
-	text-align: center;
-	margin:0;
+body {
+    font-size: 12px;
+}
+.container{
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-bottom: 50px;
 }
 
 div {
@@ -19,32 +19,61 @@ div {
 	padding:0;
 }
 
-.button{
-  box-sizing: border-box;
-	background: #1F2534;
-	border: 1px solid #306EFE;
+/*
+	
+	Navigation bar
+
+*/
+
+.navbar {
+	display: flex;
+	flex-flow: row;
+
+	background: #333;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.navbar button {
+	background-color: rgba(51,51,51,1);
+	border-left: solid #E3E3E3 1px;
+	border-right:none;
+	border-top: none;
+	border-bottom: none;
+
 	color: #FFFFFF;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 25px;
-	height:60px;
+
+	height:7vh;
 	width:200px;
-	padding:12px;
-	display:inline-block;
-	position:static;
-	
-}
-body {
-    font-size: 12px;
 }
 
-text {
-    fill: white;
+/*Puts a right-border on the about tab in the navbar*/
+.navbar #about {
+	border-right: solid #E3E3E3 1px;
 }
+
+/*Highlights a tab on hover*/
+.navbar button:hover {
+	filter: brightness(118%);
+}
+
+/*Highlights the current tab*/
+.navbar .current-page {
+	filter: brightness(118%);
+}
+
+/***
+
+	Timeline
+
+***/
 
 .time_slider{
 	width: 100%;
 	background-color: rgb(240,240,240);
-	height: 80px;
+	height: 8vh;
 	text-align: center;
 }
 #slider-container {
@@ -75,36 +104,81 @@ path:hover {
         fill-opacity: .7;
     }
 
+/*
+
+	Map
+
+*/
 #map {
     position: relative;
-    height: 500px;
     width: 100%;
+    height: 50vh;
     background-color: #333;
 }
+
+/*
+
+	sub
+
+*/
 .sub_all{
 	width:100%;
+	height:35vh;
 	flex:auto;
 	display: flex;
 	flex-direction: row;
 }
 .sub_left{
-/*	display: inline-block;
-	width:30%;*/
+	box-sizing: border-box;
 	width: 33.33%;
-	height: 400px;
 	background-color: rgb(240,255,255);
+	margin:5px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
+
 }
 .sub_middle{
-/*	display: inline-block;
-	width: 32%;*/
 	width: 33.33%;
-	height: 400px;
 	background-color: rgb(255,240,255);
+	margin:5px 0 5px 0;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 .sub_right{
-/*	display: inline-block;
-	width: 32%;*/
 	width: 33.33%;
-	height: 400px;
 	background-color: rgb(255,255,240);
+	margin:5px;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
+}
+
+
+/*
+
+	Footer
+
+*/
+.footer {
+	display:flex;
+	background-color: #E3E3E3;
+	width:100%;
+	height:150px;
+}
+
+
+
+/*dataset page*/
+.intro{
+	margin-top: 30px;
+}
+p.header{
+	font-size: 1.5rem;
+	font-family: arial, sans-serif;
+}
+p.text{
+	font-size: 1rem;
+	font-family: arial, sans-serif;
+}
+.intro a{
+	font-size: 1rem;
+	font-family: arial, sans-serif;
+	text-decoration: none;
+	color:#4A90E2;
 }
