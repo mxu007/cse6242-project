@@ -40,20 +40,19 @@
     <div class="sub_all">
     	<div class="sub_left">
     		<select id="column_value">
-			  <option value="attacktype1">attacktype</option>
-			  <option value="targtype1">targtype</option>
-			  <option value="crit1">crit</option>
-			  <option value="targsubtype1">targsubtype</option>
+    			{% for attribute in GTD_attributes %}      <!-- extracting all the attributes/column headers of GTD-->
+    				<option href = "{{attribute}}">{{attribute}}</option>
+			  	{% endfor %}
 			</select>
 			<button id="submit">
 				Show me the result
 			</button>
     	</div>
     	<div class="sub_middle">
-    		
+    		<img src = "/img/pixel.png" onload="Analytics()">
     	</div>
     	<div class="sub_right">
-    		
+    		<img src = "/img/pixel.png" onload="Vis()">
     	</div>
     	
     </div>

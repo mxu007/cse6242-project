@@ -235,10 +235,12 @@ d3.csv('globalterrorismdb_0617dist.csv', function (error, incidents) {
         //console.log(range_begin, range_end)
     });
 
+    function Analytics(){
+        return
+    }
 
-
-
-
-
+    function Vis(){
+        return
+    }
 
 });
