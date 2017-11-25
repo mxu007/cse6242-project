@@ -24,8 +24,10 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
 
     var minWidth = 10;
 
-    var sliderRange = {begin: rangeMin, end: rangeMin};
+    var sliderRange = {begin: rangeMin, end: rangeMax};
     var changeListeners = [];
+
+
     var container = d3.select(containerSelector);
     var playing = false;
     var resumePlaying = false; // Used by drag-events to resume playing on release
@@ -112,6 +114,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
     }
 
     //Create elements in container
+
     var slider = sliderBox
         .append("div")
         .attr("class", "slider");
@@ -120,6 +123,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
 
     /** Update the `left` and `width` attributes of `slider` based on `sliderRange` */
     function updateUIFromRange () {
+        //console.log("running updateUIFromRange")
         var conW = sliderBox.node().clientWidth;
         var rangeW = sliderRange.end - sliderRange.begin;
         var slope = (conW - minWidth) / (rangeMax - rangeMin);
@@ -129,6 +133,9 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
             ratio = 0;
         }
         var uirangeL = ratio * (conW - uirangeW);
+        //console.log(sliderRange.end, sliderRange.begin)
+        //console.log(conW, rangeW, slope, uirangeW,ratio,uirangeL)
+        //console.log(uirangeW)
 
         slider
             .style("left", uirangeL + "px")
@@ -137,6 +144,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
 
     /** Update the `sliderRange` based on the `left` and `width` attributes of `slider` */
     function updateRangeFromUI () {
+        //console.log("running updateRangeFromUI")
         var uirangeL = parseFloat(slider.style("left"));
         var uirangeW = parseFloat(slider.style("width"));
         var conW = sliderBox.node().clientWidth; //parseFloat(container.style("width"));
@@ -259,6 +267,7 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
         props.width = Math.round(props.width);
         slider.style("left", props.left + "px")
             .style("width", props.width + "px");
+        //console.log("running mousedown")
         updateRangeFromUI();
     });
 
