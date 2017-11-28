@@ -8,10 +8,12 @@ body,html {
 body {
     font-size: 12px;
 }
+
 .container{
 	padding-left: 15%;
 	padding-right: 15%;
 	padding-bottom: 50px;
+/*	height: 100vh;*/
 }
 
 div {
@@ -64,6 +66,18 @@ div {
 	filter: brightness(118%);
 }
 
+}
+
+/*Highlights a tab on hover*/
+.navbar button:hover {
+	filter: brightness(118%);
+}
+
+/*Highlights the current tab*/
+.navbar .current-page {
+	filter: brightness(118%);
+}
+
 /***
 
 	Timeline
@@ -72,22 +86,48 @@ div {
 
 .time_slider{
 	width: 100%;
-	background-color: rgb(240,240,240);
+	background-color: rgb(80,80,80);
 	height: 8vh;
 	text-align: center;
+	padding-top: 10px;
+	color: white;
 }
 #slider-container {
-   position: relative;
-   height: 50px;
-   background-color: #eeeef5;
-   margin-left: 10px;
-   margin-right:10px;
-   margin-bottom:5px;
-}
+       position: relative;
+       height: 20px;
+       background-color: #eeeef5;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom:2px;
+   }
 
 #range-label {
-    text-align: center;
-    margin-bottom: 10px
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 2px;
+        font-size: 1rem;
+        font-family: arial,sans-serif;
+    }
+#axis-label {
+		color: white;
+        height:20px;
+        margin-bottom: 2px;
+        font-family: arial,sans-serif;
+        stroke: white;
+ }
+ #axis-label .tick{
+ 	stroke: white;
+ }
+  #axis-label text{
+ 	color: white;
+ }
+#axis path,
+#axis text,
+#axis line {
+      fill: none;
+      stroke: white;
+      stroke-width:0.8px;
+      shape-rendering: auto;
 }
 
 svg {
@@ -149,6 +189,17 @@ path:hover {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
 }
 
+.sub_middle #Analytics{
+	position: relative;
+    height: 100%;
+    width: 100%; 
+}
+
+.sub_right #Vis{
+	position: relative;
+    height: 100%;
+    width: 100%; 
+}
 
 /*
 
@@ -162,9 +213,11 @@ path:hover {
 	height:150px;
 }
 
+/*
 
+	Dataset Page
 
-/*dataset page*/
+*/
 .intro{
 	margin-top: 30px;
 }
@@ -182,3 +235,62 @@ p.text{
 	text-decoration: none;
 	color:#4A90E2;
 }
+
+/*
+
+	About Page
+
+*/
+.profiles {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr auto 1fr auto;
+	justify-items: center;
+	align-items: center;
+	grid-column-gap: 10px;
+}
+
+#vineet {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+
+#scott {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+
+#minghan {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+}
+
+#james {
+	grid-column: 3 / 4;
+	grid-row: 1 / 2;
+}
+
+#eugene {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+
+#cooper {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.profiles p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333;
+	font-size: 18px;
+	margin:4px 0 30px 0;
+	padding:0;
+	text-align: center;
+	vertical-align: text-top;
+}
+
+.profiles p span {
+	color: #4A90E2;
+}
+

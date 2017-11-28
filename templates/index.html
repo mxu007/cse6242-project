@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Exploring Terrorism </title>
+        <link href="../static/css/styles.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    </head>
+
+    <body>
+        
+
+
+         <!-- Range slider code -->
+        <script src="../static/js/d3RangeSlider.js"></script>
+
+        <!-- Range slider style -->
+        <link href="../static/css/d3RangeSlider.css" rel="stylesheet">
+
+        <nav>
+            <div class="navbar">
+                <a href="#">
+                    <button class="current-page">Explore</button>
+                </a>
+                <a href="analysis.html">
+                    <button>Analysis</button>
+                </a>
+                <a href="dataset.html">
+                    <button>Dataset</button>
+                </a>
+                <a href="about.html">
+                    <button id="about">About</button>
+                </a>
+            </div>
+
+        </nav>
+
+        <div class="time_slider">
+            <div id="slider-container"></div>
+            <div id="axis-label"></div>
+            <div id="range-label"></div>
+        </div>
+
+        <div id="map"></div>
+    <!--     <div id="tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" />
+        </div> -->
+
+        <div class="sub_all">
+        	<div class="sub_left">
+                <!-- <form id = "Dropdown-Form" action='/explore' method="GET"> -->
+                <!-- <form role="form" id = "Dropdown-Form"> -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Please select an attribute
+                            </span>
+                            <br>
+                            <span class="input-group-addon">Press Ctrl (Windows) or ⌘ (Mac)
+                            <br>
+                            </span>
+                    		<select multiple 
+                                onfocus='this.size=3;' 
+                                onblur='this.size=1;' 
+                                onchange='this.size=1; 
+                                this.blur();' 
+                                id= "multiselect" 
+                                name="GTD_attributes" 
+                                class="selectpicker form-control"> 
+                        			{% for attribute in attributes %}       
+                                    <!-- extracting all the attributes/column headers of GTD -->
+                        			<option href = "{{ attribute }}">{{ attribute }}
+                                    </option>
+                    			  	{% endfor %}
+                			</select>
+                            <br>
+                            <br>
+                            <span class="input-group-addon">Select a Machine Learning/Analytics Technique
+                            </span>
+                            <br>
+                            <select 
+                            id="ML_techniques" 
+                            name="ML_techniques" 
+                            class="selectpicker form-control"> 
+                                {% for technique in techniques %}       
+                                <!-- extracting all the attributes/column headers of GTD -->
+                                <option href = "{{ technique }}" >{{ technique }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+        			<button type="submit" id = "result">
+        				Show me the result
+        			</button>
+                    </div>
+                <!-- </form> -->
+        	</div>
+
+        	<div id="Analytics" class="sub_middle">
+        		<iframe src id="Analytics" 
+              
+                scrolling="no" frameborder="0">
+                  <!-- onload="Analytics()"  -->
+                </iframe>
+        	</div>
+
+        	<div id="Vis" class="sub_right">
+        		<iframe src id="Vis"   scrolling="no" frameborder="0">
+                    <!-- onload="Vis()" -->
+                </iframe>
+        	</div>
+
+        </div>
+
+
+        <div class="footer">
+        </div>
+
+
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+        <!-- Websocket library -->
+
+
+        <script src="../static/js/map.js"></script>
+    </body>
+
+
+</html>

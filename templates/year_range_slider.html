@@ -1,0 +1,97 @@
+<html>
+<head>
+   <!-- Dependencies -->
+   <script src="https://d3js.org/d3.v3.min.js"></script>
+
+   <!-- Range slider code -->
+  <script src="../static/js/d3RangeSlider.js"></script>
+
+   <!-- Range slider style -->
+    <link href="../static/css/d3RangeSlider.css" rel="stylesheet">
+
+   <style type="text/css">
+       #slider-container {
+           position: relative;
+           height:30px;
+           background-color: #eeeef5;
+           margin-left:20;
+           margin-right:20;
+       }
+      #range-label {
+            text-align: center;
+        }
+
+      #axis-label {
+          height:20px;
+      }
+
+      .axis text {
+  font: 10px sans-serif;
+}
+
+#axis path,
+#axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+   </style>
+</head>
+<body>
+
+
+<div id="slider-container"></div>
+<div id="axis-label"></div>
+<div id="range-label"></div>
+<script type="text/javascript">
+
+  // function to create dynamic axis label
+  function updateAxis() {
+    var width = document.getElementById('axis-label').offsetWidth;
+    //console.log(width)
+
+    var svg = d3.select("#axis-label").append("svg")
+        .attr("width", width)
+        .attr("height",20)
+        .attr("id", "axis")
+        .append("g")
+        .attr("transform", "translate(" + 20 + "," + 0 + ")");
+
+    var x = d3.scale.linear()
+        .domain([1970, 2016])
+        .range([0, width-40]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .ticks(5)
+        .tickFormat(d3.format("d"))
+        .tickValues([1970,1980,1990,2000,2010,2016]);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis,)
+  }
+
+  // call to create slider
+  var slider = createD3RangeSlider(1970, 2016, "#slider-container");
+  updateAxis();
+
+  // Listener gets return range
+  slider.onChange(function(newRange){
+     console.log(newRange, newRange.begin, newRange.end);
+     d3.select("#range-label").html(newRange.begin + " &mdash; " + newRange.end);
+  });
+
+  slider.range(1970,2016)
+
+  window.addEventListener("resize", function () {
+      d3.select("#axis").remove()
+      updateAxis();
+    });
+
+</script>
+
+</body>
+</html>
