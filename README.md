@@ -6,7 +6,7 @@ By Cooper Colglazier, Minghan Xu, Huaiwei Sun, Eugene Kang, James Lee and Vineet
 
 ## Required Dependencies
 
-- Please download the Flask library in order to use our application. In Ubuntu you can do this as below:
+- Please download the Flask library in order to use our application. In Ubuntu you can do this by running the below line in terminal:
 
 ```
 pip install flask 
