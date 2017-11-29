@@ -26,8 +26,11 @@ def main():
 
 @app.route('/explore', methods = ['GET', 'POST'])
 def drop_down_box_options():
-	selections = request.form.getlist('GTD_attributes')
-	ML_techniques = request.form.get('ML_techniques')
+	selections = []
+	ML_techniques = None
+	if request.method == "POST":
+		selections = request.json['GTD_attributes']
+		ML_techniques = request.json['ML_techniques']
 	print selections, ML_techniques
 	#gives list of selected attributes in unicode
 
@@ -49,25 +52,26 @@ def drop_down_box_options():
 def Analytics():
 	selected_data = request.args.get('data')
 	selected_technique = request.args.get('technique')
+	print selected_data, selected_technique
 	GTD_final = technique(selected_data, selected_technique)
+	print GTD_final
 
 	# call the functions needed to do the necessary analysis and store the functional values in the array/dictionary GTD_final, which will be JSONified and passed to d3
+
+	# print GTD_final
 
 	result = jsonify(GTD_final)
 	# print type(GTD_final)    #GTD_final is dict
 	# print type(result)     #result is <class 'flask.wrappers.Response'>
 	return Response(json.dumps(GTD_final), mimetype = 'application/json')
 
-	# return redirect(url_for('Vis', result = json.dumps(GTD_final)))
-	# return render_template('index.html', result = result,attributes = GTD_attributes, techniques = ML_techniques)
-
 def sum(data):  #dummy function just for execution check
 	sum = 0
 	result = {}
 	# print type(data)   data is unicode
 	clean_data = json.loads(str(data).replace("\'", '"')) #converting from unicode to string/number/dict
-	print type(clean_data)    #clean_data is dict
-	print clean_data  
+	# print type(clean_data)    #clean_data is dict
+	# print clean_data  
 	for i, values in clean_data.iteritems():
 		# print values
 		for j in values:
@@ -95,12 +99,6 @@ def technique(data, technique):
 
 # def LR(data):
 # 	return
-
-# @app.route('/Vis', methods = ['GET', 'POST'])
-# def Vis():
-# 	result = Analytics();
-# 	print type(result)
-# 	return render_template('index.html',result = result, attributes = GTD_attributes, techniques = ML_techniques)
 
 @app.route('/analysis.html')
 def Analysis():

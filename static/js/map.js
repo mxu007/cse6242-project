@@ -1,98 +1,112 @@
-// write codes for the Analytics and Visualization panes inside the below functions
-
 $("#result").click(function()
         {
-            // event.preventDefault();
-            // console.log("Hello World!");
             var multiselectInput = $("#multiselect option:selected").attr("href");
             var mltechniquesInput = $("#ML_techniques option:selected").attr("href");
-            console.log("Multi Select Input: " + JSON.stringify(multiselectInput));
-            console.log("ML Techniques Input: " + JSON.stringify(mltechniquesInput));
+            // console.log("Multi Select Input: " + JSON.stringify(multiselectInput));
+            // console.log("ML Techniques Input: " + JSON.stringify(mltechniquesInput));
 
             $.ajax({
                 type: "POST",
                 url: "/explore",
-                dataType: "json",
-                data: JSON.stringify({GTD_attributes: multiselectInput, ML_techniques: mltechniquesInput}),
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify({"GTD_attributes": multiselectInput, "ML_techniques": mltechniquesInput}),
                 success: function(data) { 
-                    console.log(data.data);
-                    // return data;
+                    // console.log(data);
+                    var div_Analytics = "#Analytics";
+                    var div_Vis = "#Vis";
+                    Analytics(div_Analytics,data);
+                    Vis(div_Vis,data)
                     },
                 complete: function(xhr, textStatus) {
                     console.log("AJAX Request complete -> ", xhr, " -> ", textStatus);
                     }
-            });
- 
-            $.ajax({
-                type: "GET",
-                url: "/Analytics",
-                dataType: "json",
-                data: JSON.stringify({result:"result"}),
-                success: function(data) { 
-                    console.log(data.data);
-                    return data;
-                    },
-                complete: function(xhr, textStatus) {
-                    console.log("AJAX Request complete -> ", xhr, " -> ", textStatus);
-                    }
-            });
-
-//     // return deferredData; // contains the passed data
-// }
-
-// var dataDeferred = getData();
-
-// $.when(dataDeferred).done( function( data ) {
-//     console.log("The data is: " + data);    
+            });  
 });
 
-// function Analytics(){
+// write codes for the Analytics and Visualization panes inside the below functions
+
+function Analytics(reference, data){
     
-//     // console.log(data);
-//     d3.json("{{ url_for('Analytics') }}").post(function(data){
-        
-//         console.log(data);
-//         console.log("Data is loaded in Analytics()");
-//         // var text = svg.selectAll('text')
-//         //                 .data(data.GTD_final)
-//         //                .enter().append('text')
-//         //                 .attr("x", function(d,i){return 100 * (i % 3)})
-//         //                 .attr("y", function(d,i){return 20 * ( Math.floor(i/3) ) })
-//         //                 .attr("fill", "#000")
-//         //                 .text(function(d){return d});
-//     });
-// }
+    // console.log(data.a);
+    var width = $(reference).width();
+    var margin = {top:10, right:10, bottom: 40, left:40};
+    var height = 270 - margin.top - margin.bottom;
+    var svg = d3.select("#Analytics")
+                .append("svg")
+                .attr("width", width);
+    // console.log("Data is loaded in Analytics()");
+    // console.log(width);
+    // console.log(height);
 
-// function Vis(){
-//     d3.json("/Vis").post(function(data){
-//         console.log(data);
-//         console.log("Data is loaded in Vis()");
-//         // var node = svg.selectAll('.node')
-//         //               .data(bubble.nodes(quotes).filter(function(d) { console.log(d); return d; }))
-//         //               .enter().append('g')
-//         //               .attr('class', 'node')
-//         //               .attr('transform', function(d) { return 'translate(' + d + ',' + d + ')'});
+    var fake_data  = [data.a, data.b, data.c];  
+    // dummy values
 
-//         // node.append("circle")
-//         //     .attr("r", function(d) { return d; })
-//         //     .style('fill', function(d) { return color(d); })
-//         //     .on("mouseover", function(d) {
-//         //       tooltip.text(d + ": $" + d);
-//         //       tooltip.style("visibility", "visible");
-//         //     })
-//         //     .on("mousemove", function() {
-//         //       return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
-//         //     })
-//         //     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+    var text = svg.selectAll("svg")
+                    .data(fake_data)
+                   .enter().append('text')
+                    .attr("x", function(d,i){ return (i * 30) ;})
+                    .attr("y", function(d,i){return 100 ;})
+                    .attr("fill", "#888")
+                    .style('fill', 'darkOrange')
+                    .text(function(d){return d});
+}
 
-//         // node.append('text')
-//         //     .attr("dy", ".3em")
-//         //     .style('text-anchor', 'middle')
-//         //     .text(function(d) { return d; });
+function Vis(reference, data){
 
-//     });
-// }
+    var width = $(reference).width();
+    var margin = {top:10, right:10, bottom: 40, left:40};
+    var height = 270 - margin.top - margin.bottom;
+    var svg = d3.select("#Vis")
+                .append("svg")
+                .attr("width", width);
+    // console.log("Data is loaded in Vis()");
+    // console.log(width);
+    // console.log(height);
 
+    var bubble = d3.layout.pack()
+                            .sort(null)  // disable sorting, use DOM tree traversal
+                            .size([width, height])  // chart layout size
+                            .padding(1)  // padding between circles
+                            .radius(function(d) { return 20 + (sizeOfRadius(d) * 60); });  // radius for each circle
+
+    var tooltip = d3.select("body")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("z-index", "10")
+                    .style("visibility", "hidden")
+                    .style("color", "white")
+                    .style("padding", "8px")
+                    .style("background-color", "rgba(0, 0, 0, 0.75)")
+                    .style("border-radius", "6px")
+                    .style("font", "12px sans-serif")
+                    .text("tooltip");
+
+    var fake_data  = [data.a, data.b, data.c];  
+    // dummy values. 
+    // Just be careful that D3 objects/dicts are difficult to process compared to arrays 
+
+    var node = svg.selectAll("svg")
+                  .data(fake_data)
+                  .enter().append('g')
+                  .attr('transform', function(d) { return 'translate(' + d*2+5 + ',' + 25 + ')'});
+
+    node.append("circle")
+        .attr("r", function(d) { return d; })
+        .style('fill', 'darkOrange')
+        .on("mouseover", function(d) {
+          tooltip.text(d);
+          tooltip.style("visibility", "visible");
+        })
+        .on("mousemove", function() {
+          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+        })
+        .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+    node.append('text')
+        .attr("dy", ".3em")
+        .style('text-anchor', 'middle')
+        .text(function(d) { return d; });
+}
 
 // d3.csv('../../globalterrorismdb_0617dist.csv', function (error, incidents) {
 
@@ -279,8 +293,6 @@ $("#result").click(function()
 //     // mapmove();
 
 
-
-
 //     // function getZoomScale() {
 //     //     var mapWidth = leafletMap.getSize().x;
 //     //     var bounds = leafletMap.getBounds();
@@ -361,12 +373,6 @@ $("#result").click(function()
 //     // });
 //     slider.range(1970,2016);
 
-//     var bubble = d3.layout.pack()
-//                   .sort(null)  // disable sorting, use DOM tree traversal
-//                   .size([20, 20])  // chart layout size
-//                   .padding(1)  // padding between circles
-//                   .radius(function(d) { return 20 + (sizeOfRadius(d) * 30); });  // radius for each circle
-
     
 //     // window listener to adjust the axis size
 //     window.addEventListener("resize", function () {
@@ -375,9 +381,3 @@ $("#result").click(function()
 //     });
 
 // });
-
-// window.onload = function(){
-// document.getElementById("Vis").addEventListener("load", Vis);
-
-// document.getElementById("Analytics").addEventListener("load", Analytics);
-// }
