@@ -47,9 +47,12 @@ python app.py
 Happy Analysing!
 
 If you find errors with our implementation, please submit a pull request on our Github page. If you want to build-upon our work, fork us (and star us if you appreciate our work!).
+<<<<<<< HEAD
+=======
 
 ## Potential Errors
 ```
 AttributeError: 'dict' does not have function iteritems()
 ```
 - This is due to the server being written in Python 2.7 (we will offer support for Python 3+ in the future). If you must correct it, then change iteritems() to items() (make other changes as necessary to convert from Python 2 to 3) 
+>>>>>>> c21f1a4d9d0ff13eda64153d5c8af56ce8931200
