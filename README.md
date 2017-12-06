@@ -6,11 +6,14 @@ By Cooper Colglazier, Minghan Xu, Huaiwei Sun, Eugene Kang, James Lee and Vineet
 
 ## Required Dependencies
 
-- Please download the Flask library in order to use our application. In Ubuntu you can do this by running the below line in terminal:
+- Please download the Flask, Pandas, Statmodels libraries in order to use our application. Relevant links are available below:
 
-```
-pip install flask 
-```
+(http://www.statsmodels.org/dev/install.html)
+
+(https://pandas.pydata.org/pandas-docs/stable/install.html)
+
+(http://flask.pocoo.org/docs/0.12/installation/)
+
 ## Installation
 
 - You can choose to download the entire zip file for this repository to your system or use terminal:
