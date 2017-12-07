@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        
+
 
 
          <!-- Range slider code -->
@@ -23,17 +23,18 @@
 
         <nav>
             <div class="navbar">
-                <a href="#">
-                    <button class="current-page">Explore</button>
+                <img  class ="nav_logo" src="../static/img/logo_small.png">
+                <a class="current-page" href="#">
+                    Explore
                 </a>
                 <a href="analysis.html">
-                    <button>Analysis</button>
+                    Analysis
                 </a>
                 <a href="dataset.html">
-                    <button>Dataset</button>
+                    Dataset
                 </a>
-                <a href="about.html">
-                    <button id="about">About</button>
+                <a id="about" href="about.html">
+                    About
                 </a>
             </div>
 
@@ -51,66 +52,88 @@
         </div> -->
 
         <div class="sub_all">
-        	<div class="sub_left">
+            <div class="sub_left">
                 <!-- <form id = "Dropdown-Form" action='/explore' method="GET"> -->
                 <!-- <form role="form" id = "Dropdown-Form"> -->
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon">Please select an attribute
-                            </span>
-                            <br>
-                            <span class="input-group-addon">Press Ctrl (Windows) or ⌘ (Mac) to select multiple attributes
-                            <br>
-                            </span>
-                    		<select multiple 
-                                onfocus='this.size=3;' 
-                                onblur='this.size=1;' 
-                                onchange='this.size=1; 
-                                this.blur();' 
-                                id= "multiselect" 
-                                name="GTD_attributes" 
-                                class="selectpicker form-control"> 
-                        			{% for attribute in attributes %}       
-                                    <!-- extracting all the attributes/column headers of GTD -->
-                        			<option href = "{{ attribute }}">{{ attribute }}
-                                    </option>
-                    			  	{% endfor %}
-                			</select>
-                            <br>
-                            <br>
-                            <span class="input-group-addon">Select a Machine Learning/Analytics Technique
-                            </span>
-                            <br>
-                            <select 
-                            id="ML_techniques" 
-                            name="ML_techniques" 
-                            class="selectpicker form-control"> 
-                                {% for technique in techniques %}       
-                                <!-- extracting all the attributes/column headers of GTD -->
-                                <option href = "{{ technique }}" >{{ technique }}
+                            <p class="sub_title">Conduct your own analysis</p>
+                            <p class="text1">Explore the relationship between terrorism casualties and another attribute in a certain country</p>
+                            <div style="margin-bottom: 5px;">
+                                <p class="sub_instruction"><span style="margin-right: 5px;">Step1:</span><span>Select the attribute you want to explore here</span></P>
+
+                                <select 
+
+                                    id= "multiselect"
+                                    name="GTD_attributes"
+                                    class="selectpicker form-control">
+                                        {% for attribute in attributes %}
+                                        <!-- extracting all the attributes/column headers of GTD -->
+                                        <option href = "{{ attribute }}">{{ attribute }}
+                                        </option>
+                                        {% endfor %}
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 5px;">
+                                <p class="sub_instruction"><span style="margin-right: 5px;">Step2:</span><span>Select the country you want to explore</span></p>
+                                <select
+                                id= "country"
+                                name="country"
+                                class="selectpicker form-control">
+                                {% for country in countries %}
+                                <!-- extracting all the countries of GTD -->
+                                <option href = "{{ country }}">{{ country }}
                                 </option>
                                 {% endfor %}
-                            </select>
+                                </select>
+                             </div>
+                            
+                            <div style="margin-bottom: 5px;">
+                                <p class="sub_instruction"><span style="margin-right: 5px;">Step3:</span><span>Select a Machine Learning/Analytics technique you want to use</span></p>
+                                
+                                <br>
+                                <select
+                                id="ML_techniques"
+                                name="ML_techniques"
+                                class="selectpicker form-control">
+                                    {% for technique in techniques %}
+                                    <!-- extracting all the attributes/column headers of GTD -->
+                                    <option href = "{{ technique }}" >{{ technique }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                         </div>
-        			<button type="submit" id = "result">
-        				Show me the result
-        			</button>
+                    <button type="submit" id = "result" class = "analyze_button">
+                        Analyze
+                    </button>
                     </div>
                 <!-- </form> -->
-        	</div>
+            </div>
 
-        	<div id="Analytics" class="sub_middle">
+            <div id="Analytics" class="sub_middle">
+                <p class="sub_title">Interpretation of Results</p>
+                <div class = "default_instruction">            
+                    <div style="padding-left: 50px;"><img style = "height: 120px;" src="../static/img/div_middle.png"></div>
+                    <p class="sub_description">When you have choosen the time range, countries and attribute you want explore and clicked the “Analyze” button. Here will be the interpretation of the results and a simple conclusion we could make about them.</p>
+                </div>
 
-        	</div>
+            </div>
 
-        	<div id="Vis" class="sub_right">
-
-        	</div>
+            <div id="Vis" class="sub_right">
+                <p class="sub_title">Visualization of Results</p>
+                <div class = "default_instruction"> 
+                    <div style="padding-left: 50px;"><img style = "height: 120px;" src="../static/img/div_right.png"></div>
+                    <p class="sub_description">When you have choosen the time range, countries and attribute you want explore and clicked the “Analyze” button. Here will be the visualization of the results.</p>
+                </div>
+            </div>
 
         </div>
 
 
         <div class="footer">
+            <p>Copyright © 2017 All right reserved</p>
         </div>
 
 
@@ -122,6 +145,7 @@
 
 
         <script src="../static/js/map.js"></script>
+        <script src="../static/js/geoplot.js"></script>
     </body>
 
 
