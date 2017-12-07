@@ -153,6 +153,15 @@ path:hover {
 	Map
 
 */
+.analysis_type{
+	font-family: arial, sans-serif;
+	font-size: 2rem;
+	font-weight: 400;
+	margin: 20px auto;
+}
+.analysis_main{
+	margin-bottom: 50px;
+}
 #map {
     position: relative;
     width: 100%;
