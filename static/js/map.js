@@ -8,6 +8,7 @@ $("#result").click(function()
 
             $(".result_table").remove();
             $(".result_graph").remove();
+            $(".default_instruction").remove();
 
             $.ajax({
                 type: "POST",
