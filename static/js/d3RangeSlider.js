@@ -18,6 +18,7 @@
  * @param rangeMax Maximum value of the range
  * @param containerSelector A CSS selection indicating exactly one element in the document
  * @returns {{range: function(number, number), onChange: function(function)}}
+ * Implementation modified from: https://github.com/RasmusFonseca/d3RangeSlider
  */
 function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton) {
     "use strict";
@@ -408,3 +409,4 @@ function createD3RangeSlider (rangeMin, rangeMax, containerSelector, playButton)
         onChange: onChange
     };
 }
+
